@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<style>
+             *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+    font-family: "Open Sans", sans-serif;
+    color: #4d4643;}
+    nav {
+  width: 100%;
+  padding: 20px 0;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  box-shadow: -1px 12px 24px 4px rgba(0, 0, 0, 0.2);
+}
+
+.nav-all-content11 {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+}
+
+.nav-all-content11 .logo {
+  width: 30%;
+}
+
+.nav-all-content11 .logo a {
+  color: black;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.nav-all-content11 .logo a .green {
+  color: #1bbd36;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.nav-all-content11 .nav-links {
+  text-align: right;
+  width: 80%;
+}
+
+.nav-links ul li {
+  display: inline-block;
+  list-style-type: none;
+  margin-bottom: 0;
+}
+
+.nav-links ul li .active-link {
+  color: #1bbd36;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 13px;
+  padding: 10px 10px;
+  display: block;
+}
+
+.nav-links ul li .inactive-links {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 13px;
+  padding: 10px 10px;
+  display: block;
+}
+
+.content11 {
+  display: inline-block;
+}
+
+.content11:hover .under-content11 {
+  display: block;
+}
+
+.under-content11 {
+  background-color: white;
+  display: none;
+  position: absolute;
+  border-top: 2px solid #1bbd36;
+  z-index: 1;
+}
+
+.under-content11 a {
+  display: block;
+  color: black;
+  text-decoration: none;
+  text-align: left;
+  padding: 10px 10px;
+  font-size: 13px;
+}
+
+.under-content11 a:hover {
+  color: #1bbd36;
+}
+
+.content-1 {
+  display: inline-block;
+}
+
+.content-1:hover .under-content-1 {
+  display: block;
+}
+
+.under-content-1 {
+  width: 150px;
+  background-color: white;
+  display: none;
+  position: absolute;
+  right: -150px;
+  top: 100px;
+  border-top: 2px solid #1bbd36;
+  z-index: 1;
+}
+
+.under-content-1 a {
+  display: block;
+  color: black;
+  text-decoration: none;
+  text-align: left;
+  padding: 10px 10px;
+  font-size: 13px;
+}
+
+.under-content-1 a:hover {
+  color: #1bbd36;
+}
+
+.nav-links ul li .inactive-links:hover {
+  color: #1bbd36;
+}
+
+.nav-links ul li .top-icons {
+  color: darkgray;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 17px;
+  padding: 0px 8px;
+  display: block;
+}
+
+.nav-links ul li .top-icons:hover {
+  color: #1bbd36;
+}
+
+
+
+/* 
+.mobile-nav-toggle {
+    color: #111;
+    font-size: 28px;
+    cursor: pointer;
+    display: none;
+    line-height: 0;
+    transition: 0.5s;
+}
+.header-social-links {
+    margin-left: 20px;
+    border-left: 1px solid #c4c4c4;
+}
+.d-flex {
+    display: flex !important;
+}
+.header-social-links a {
+    color: #a0a0a0;
+    display: inline-block;
+    line-height: 0px;
+    transition: 0.3s;
+    padding-left: 20px;
+}  */
+.slider {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: none;
+}
+
+.slide.active {
+    display: block;
+}
+
+.content {
+    position: absolute;
+    bottom: 25%;
+    left: 20%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 20px;
+    /* border-radius: 10px; */
+    width: 60%;
+    margin: auto;
+    justify-content: space-between;
+    border-top: 7px solid #1bbd36;
+}
+
+#button {
+    background-color:transparent;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+   border: 2px solid #1bbd36;
+   margin-left: 357px;
+}
+#button:hover{
+    background-color: #1bbd36;
+    transition: 0.5s;
+}
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    transform: translateY(-50%);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+.section{
+    width: 80%;
+    margin: auto;
+   display: grid;
+   grid-template-columns: auto auto;
+   align-items: baseline;
+   /* padding: 10px; */
+}
+
+.div1{
+    padding-top: 35px;
+    
+}
+.div1 h1{
+    padding: 10px;
+}
+#h1{
+    font-size: 35px;
+}
+#h2{
+    font-size: 25px;
+}
+.div2{
+    /* width: 40%; */
+    padding-top: 30px;
+    /* padding: 20px; */
+}
+.div2 p{
+padding: 10px;
+}
+#ii{
+    color: #1bbd36;
+    padding: 10px;
+    font-size: 20px;
+}
+.sit{
+    font-style: italic;
+}
+.section1{
+    width: 100%;
+    background-color: #f7f7f7;
+    padding: 39px;
+    
+}
+.section2{
+    /* width: 80%; */
+    margin: auto;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto;
+    gap: 15px;
+    padding-top: 55px;
+ 
+ 
+}
+.atque{
+    width: 350px;
+    /* width: 80%;
+    margin: auto; */
+    height: 300px;
+    text-align: center;
+    padding: 15px;
+    border: 1px solid white;
+    background-color: white;
+    margin-left: 40px;
+    justify-content: space-between;
+    /* padding-top: 30px; */
+}
+#et{
+    color: rgb(93, 207, 245);
+    font-size: 36px;
+    border: 1px solid #f7f7f7;
+    border-radius: 50%;
+    background-color: #f7f7f7;
+    padding: 25px;
+}
+.atque h1{
+    color: #111;
+    padding: 10px;
+}
+.atque p{
+    padding: 15px;
+}
+#ete{
+    font-size: 36px;
+    color: #ffa76e;
+    border: 1px solid #f7f7f7;
+    border-radius: 50%;
+    background-color: #f7f7f7;
+    padding: 25px;
+}
+#eet{
+    font-size: 36px;
+    color: rgb(235, 91, 139);
+    border: 1px solid #f7f7f7;
+    border-radius: 50%;
+    background-color: #f7f7f7;
+    padding: 25px;
+}
+#tee{
+  font-size: 36px;
+  color: orange; 
+  border: 1px solid #f7f7f7;
+  border-radius: 50%;
+  background-color: #f7f7f7;
+  padding: 25px; 
+}
+#eetee{
+    font-size: 36px;
+    color: #ff5828;
+    border: 1px solid #f7f7f7;
+    border-radius: 50%;
+    background-color: #f7f7f7;
+    padding: 25px; 
+}
+#eett{
+    font-size: 36px;
+    color: aqua;
+    border: 1px solid #f7f7f7;
+    border-radius: 50%;
+    background-color: #f7f7f7;
+    padding: 25px; 
+}
+.atque:hover{
+    border-color: #fff;
+    box-shadow: 0px 0 35px 0 rgba(0, 0, 0, 0.08);
+    transition: all ease-in-out 0.3s;
+}
+.atque:hover #et{
+    background-color:rgb(93, 207, 245) ;
+    color: white;
+    transition: all ease-in-out 0.3s;
+}
+.atque:hover #ete{
+    background-color:#ffa76e ;
+    color: white;
+    transition: all ease-in-out 0.3s;
+}
+.atque:hover #eet{
+    background-color:rgb(235, 91, 139);
+    color: white;
+    transition: all ease-in-out 0.3s;
+}
+.atque:hover #tee{
+    background-color:orange;
+    color: white;
+    transition: all ease-in-out 0.3s;
+}
+.atque:hover #eetee{
+    background-color:#ff5828;
+    color: white;
+    transition: all ease-in-out 0.3s;
+}
+.atque:hover #eett{
+    background-color:aqua;
+    color: white;
+    transition: all ease-in-out 0.3s;
+}
+.fourth-section {
+  width: 100%;
+  background-color: white;
+  padding: 70px 0;
+}
+
+.fourth-section .links {
+  width: 30%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.fourth-section .links ul li {
+  display: inline-block;
+  list-style-type: none;
+}
+
+.fourth-section .links ul li .the-active {
+  color: white;
+  background-color: #1bbd36;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 8px 15px;
+  border-radius: 4px;
+  margin: 0 10px;
+}
+
+.fourth-section .links ul li .the-inactive {
+  color: darkgray;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 8px 15px;
+  border-radius: 4px;
+  margin: 0 10px;
+}
+
+.fourth-section .links ul li .the-inactive:hover {
+  color: white;
+  background-color: #1bbd36;
+}
+
+.fourth-all-content {
+  width: 90%;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.first-img {
+  background-image: url("./portfolio/portfolio-1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 400px;
+  margin-bottom: 25px;
+  position: relative;
+  transition: all ease-in-out 0.3s;
+}
+
+.first-img:hover {
+  box-shadow: -1px 12px 24px 4px rgba(0, 0, 0, 0.2);
+}
+
+.first-img:hover .in-img-1 {
+  display: block;
+}
+
+.in-img-1 {
+  display: none;
+  position: absolute;
+  bottom: 20px;
+  left: 5%;
+  right: 5%;
+  height: 80px;
+  width: 90%;
+  transition: all ease-in-out 0.3s;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+}
+
+.the-h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 0.5rem;
+}
+
+.the-p {
+  color: #444444;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.pluss {
+  position: absolute;
+  right: 15px;
+  bottom: 30px;
+}
+
+.pluss a {
+  color: black;
+  text-decoration: none;
+  margin: 5px;
+}
+
+.pluss a:hover {
+  color: #1bbd36;
+}
+
+.second-img {
+  background-image: url("./portfolio/portfolio-6.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 580px;
+  margin-bottom: 25px;
+  position: relative;
+  transition: all ease-in-out 0.3s;
+}
+
+.second-img:hover {
+  box-shadow: -1px 12px 24px 4px rgba(0, 0, 0, 0.2);
+}
+
+.second-img:hover .in-img-2 {
+  display: block;
+}
+
+.in-img-2 {
+  display: none;
+  position: absolute;
+  bottom: 20px;
+  left: 5%;
+  right: 5%;
+  height: 80px;
+  width: 90%;
+  transition: all ease-in-out 0.3s;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+}
+
+.third-img {
+  background-image: url("./portfolio/portfolio-2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 280px;
+  margin-bottom: 25px;
+  position: relative;
+  transition: all ease-in-out 0.3s;
+}
+
+.third-img:hover {
+  box-shadow: -1px 12px 24px 4px rgba(0, 0, 0, 0.2);
+}
+
+.third-img:hover .in-img-3 {
+  display: block;
+}
+
+.in-img-3 {
+  display: none;
+  position: absolute;
+  bottom: 20px;
+  left: 5%;
+  right: 5%;
+  height: 80px;
+  width: 90%;
+  transition: all ease-in-out 0.3s;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+}
+
+.fourth-img {
+  background-image: url("./portfolio/portfolio-5.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 580px;
+  margin-bottom: 25px;
+  position: relative;
+  transition: all ease-in-out 0.3s;
+}
+
+.fourth-img:hover {
+  box-shadow: -1px 12px 24px 4px rgba(0, 0, 0, 0.2);
+}
+
+.fourth-img:hover .in-img-4 {
+  display: block;
+}
+
+.in-img-4 {
+  display: none;
+  position: absolute;
+  bottom: 20px;
+  left: 5%;
+  right: 5%;
+  height: 80px;
+  width: 90%;
+  transition: all ease-in-out 0.3s;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+}
+
+.fifth-img {
+  background-image: url("./portfolio/portfolio-9.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 230px;
+  margin-bottom: 25px;
+  position: relative;
+  transition: all ease-in-out 0.3s;
+}
+
+.fifth-img:hover {
+  box-shadow: -1px 12px 24px 4px rgba(0, 0, 0, 0.2);
+}
+
+.fifth-img:hover .in-img-5 {
+  display: block;
+}
+
+.in-img-5 {
+  display: none;
+  position: absolute;
+  bottom: 20px;
+  left: 5%;
+  right: 5%;
+  height: 80px;
+  width: 90%;
+  transition: all ease-in-out 0.3s;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+}
+.sixth-img {
+  background-image: url("./portfolio/portfolio-3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 235px;
+  margin-bottom: 25px;
+  position: relative;
+  transition: all ease-in-out 0.3s;
+}
+
+.sixth-img:hover {
+  box-shadow: -1px 12px 24px 4px rgba(0, 0, 0, 0.2);
+}
+
+.sixth-img:hover .in-img-6 {
+  display: block;
+}
+
+.in-img-6 {
+  display: none;
+  position: absolute;
+  bottom: 20px;
+  left: 5%;
+  right: 5%;
+  height: 80px;
+  width: 90%;
+  transition: all ease-in-out 0.3s;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+}
+
+.seventh-img {
+  background-image: url("./portfolio/portfolio-4.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 240px;
+  margin-bottom: 25px;
+  position: relative;
+  transition: all ease-in-out 0.3s;
+}
+
+.seventh-img:hover {
+  box-shadow: -1px 12px 24px 4px rgba(0, 0, 0, 0.2);
+}
+
+.seventh-img:hover .in-img-7 {
+  display: block;
+}
+
+.in-img-7 {
+  display: none;
+  position: absolute;
+  bottom: 20px;
+  left: 5%;
+  right: 5%;
+  height: 80px;
+  width: 90%;
+  transition: all ease-in-out 0.3s;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+}
+
+.eighth-img {
+  background-image: url("./portfolio/portfolio-7.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 230px;
+  margin-bottom: 25px;
+  position: relative;
+  transition: all ease-in-out 0.3s;
+}
+
+.eighth-img:hover {
+  box-shadow: -1px 12px 24px 4px rgba(0, 0, 0, 0.2);
+}
+
+.eighth-img:hover .in-img-8 {
+  display: block;
+}
+
+.in-img-8 {
+  display: none;
+  position: absolute;
+  bottom: 20px;
+  left: 5%;
+  right: 5%;
+  height: 80px;
+  width: 90%;
+  transition: all ease-in-out 0.3s;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+}
+
+.ninth-img {
+  background-image: url("./portfolio/portfolio-8.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 250px;
+  margin-bottom: 25px;
+  position: relative;
+  transition: all ease-in-out 0.3s;
+}
+
+.ninth-img:hover {
+  box-shadow: -1px 12px 24px 4px rgba(0, 0, 0, 0.2);
+}
+
+.ninth-img:hover .in-img-9 {
+  display: block;
+}
+
+.in-img-9 {
+  display: none;
+  position: absolute;
+  bottom: 20px;
+  left: 5%;
+  right: 5%;
+  height: 80px;
+  width: 90%;
+  transition: all ease-in-out 0.3s;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+}
+.the-arrow {
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  font-size: 15px;
+  padding: 10px 12px;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+  background-color: #46ac57;
+}
+
+.the-arrow:hover {
+  background-color: #1bbd36;
+}
+section {
+    padding: 60px 0;
+    overflow: hidden;
+}
+[data-aos^=fade][data-aos^=fade].aos-animate {
+    opacity: 1;
+    transform: translateZ(0);
+}
+[data-aos][data-aos][data-aos-duration="1000"], body[data-aos-duration="1000"] [data-aos] {
+    transition-duration: 1s;
+}
+[data-aos][data-aos][data-aos-easing=ease-in-out], body[data-aos-easing=ease-in-out] [data-aos] {
+    transition-timing-function: ease-in-out;
+}
+.section-title {
+    text-align: center;
+    padding-bottom: 30px;
+   
+}
+.section-title h2 {
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+    
+}
+@media (min-width: 992px) {
+    .col-lg-3 {
+        flex: 0 0 auto;
+        width: 25%;
+    }
+}
+.clients .client-logo {
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid #ececec;
+    border-bottom: 1px solid #ececec;
+    overflow: hidden;
+    background: #fff;
+    height: 100px;
+}
+.clearfix::after {
+    display: block;
+    clear: both;
+    content: "";
+}
+.section-title h2::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: #1bbd36;
+    bottom: 0;
+    left: calc(50% - 25px);
+}
+.clients .client-logo img {
+    transition: all 0.3s ease-in-out;
+    height: 36px;
+    filter: grayscale(100%);
+}
+.clients .client-logo img:hover {
+    filter: grayscale(0%);
+    transition: all 0.3s ease-in-out;
+    
+}
+img, svg {
+    vertical-align: middle;
+}
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+@media (min-width: 992px) {
+    .col-lg-3 {
+        flex: 0 0 auto;
+        width: 25%;
+    }
+}
+
+.twitter{
+    font-size: 18px;
+    /* display: inline-block; */
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    line-height: 1;
+    padding: 8px 0;
+    margin-right: 4px;
+    border-radius: 4px;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    transition: 0.3s;
+}
+.facebook{
+    font-size: 18px;
+    /* display: inline-block; */
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    line-height: 1;
+    padding: 8px 0;
+    margin-right: 4px;
+    border-radius: 4px;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    transition: 0.3s;
+}
+.linkedin{
+    font-size: 18px;
+    /* display: inline-block; */
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    line-height: 1;
+    padding: 8px 0;
+    margin-right: 4px;
+    border-radius: 4px;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    transition: 0.3s;
+}
+.instagram{
+    font-size: 18px;
+    /* display: inline-block; */
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    line-height: 1;
+    padding: 8px 0;
+    margin-right: 4px;
+    border-radius: 4px;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    transition: 0.3s;
+}
+a{
+  text-decoration: none;
+}
+.button1{
+    width: 65px;
+    background-color: #1bbd36;
+    position: sticky;
+    left: 90%;
+    bottom: 3%; 
+    padding: 12px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+</style>
+<body>
+  <nav>
+    <div class="nav-all-content11">
+      <div class="logo">
+        <a href="index.html"><span class="green">COM</span>PANY</a>
+      </div>
+      <div class="nav-links">
+        <ul>
+          <li><a class="active-link" href="index.html">HOME</a></li>
+          <li class="content11">
+            <a class="inactive-links" href="index.html"
+              >ABOUT <i class="fa-solid fa-caret-down"></i
+            ></a>
+            <div class="under-content11">
+              <div class="under-item"><a href="about.html">About Us</a></div>
+              <div class="under-item"><a href="team.html">Team</a></div>
+              <div class="nuder-item"><a href="testimonials.html">Testemonials</a></div>
+              <div class="under-item content-1">
+                <a href="#"
+                  >Deep Drop Down <i class="fa-solid fa-caret-right"></i>
+                </a>
+                <div class="under-content-1">
+                  <div class="under-item">
+                    <a href="#">Deep Drop Down1</a>
+                  </div>
+                  <div class="under-item">
+                    <a href="#">Deep Drop Down2</a>
+                  </div>
+                  <div class="nuder-item">
+                    <a href="#">Deep Drop Down3</a>
+                  </div>
+                  <div class="under-item">
+                    <a href="#">Deep Drop Down4</a>
+                  </div>
+                  <div class="under-item">
+                    <a href="#">Deep Drop Down5</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li><a class="inactive-links" href="services.html">SERVICES</a></li>
+          <li>
+            <a class="inactive-links" href="portfolio.html">PORTFOLIO</a>
+          </li>
+          <li><a class="inactive-links" href="pricing.html">PRICING</a></li>
+          <li><a class="inactive-links" href="blog.html">BLOG</a></li>
+          <li><a class="inactive-links" href="contact.html">CONTACT</a></li>
+          |
+          <li>
+            <a class="top-icons" href="#"
+              ><i class="fa-brands fa-twitter"></i
+            ></a>
+          </li>
+          <li>
+            <a class="top-icons" href="#"
+              ><i class="fa-brands fa-facebook"></i
+            ></a>
+          </li>
+          <li>
+            <a class="top-icons" href="#"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+          </li>
+          <li>
+            <a class="top-icons" href="#"
+              ><i class="fa-brands fa-linkedin"></i
+            ></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+       
+       
+  <section class="section22" id="index" >
+         
+
+ 
+    <div class="slider">
+        <div class="slide active" style="background-image: url('./slide-1.jpg');">
+            <div class="content">
+                <h1>Welcome to Company</h1>
+                <p>Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+                <button id="button">Read More</button>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('./slide-2.jpg');">
+        
+          <div class="content">
+                <h1>Lorem Ipsum Dolor</h1>
+                <p>Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+                <button id="button">Read More</button>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('./slide-3.jpg');">
+            <div class="content">
+                <h1>Sequi ea ut et est quaerat</h1>
+                <p>Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+                <button id="button">Read More</button>
+            </div>
+        </div>
+    </div>
+    <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="next" onclick="moveSlide(1)">&#10095;</button>
+
+
+<section class="section">
+
+    <div class="div1">
+        <h1 id="h1">EUM IPSAM LABORUM <br>DELENITI VELITENA </h1>
+        <h1 id="h2">Voluptatem dignissimos provident quasi corporis <br> voluptates sit assum perenda sruen jonee trave</h1>
+    </div>
+  
+    <div class="div2">
+        <div>
+            <p>
+                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+            </p>
+        </div>
+            <i class="fa-solid fa-check-double" id="ii"></i>
+            <span>Ullamco laboris nisi ut aliquip ex ea commodo consequa</span><br>
+            <i class="fa-solid fa-check-double" id="ii"></i>
+            <span>Duis aute irure dolor in reprehenderit in voluptate velit</span><br>
+            <i class="fa-solid fa-check-double" id="ii"></i>
+            <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor  </span>
+        <div>
+            <p class="sit">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="section1">
+ <div class="section2">
+   
+        <div class="atque">
+          <i class="fa-brands fa-dribbble" id="et"></i>
+          <h1>Lorem Ipsum</h1>
+          <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+      </div>
+      <div class="atque">
+        <i class="fa-solid fa-file-lines" id="ete"></i>
+          <h1>Sed Perspiciatis</h1>
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+      </div>
+      <div class="atque">
+        <i class="fa-solid fa-atom" id="eet"></i>
+          <h1>Magni Dolores</h1>
+          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+      </div>
+    <div class="atque">
+        <i class="fa-solid fa-layer-group" id="tee"></i>
+        <h1>Nemo Enim</h1>
+        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+    </div>
+    <div class="atque">
+        <i class="fa-solid fa-tv" id="eetee"></i>
+        <h1>Dele Cardo</h1>
+        <p>Quis consequatur saepe eligendi voluptatem consequatur dolor </p>
+    </div>
+    <div class="atque">
+        <i class="fa-solid fa-church" id="eett"></i>
+        <h1>Divera Don</h1>
+        <p>Modi nostrum vel laborum. Porro fugit error sit minus sapiente sit aspernatur</p>
+    </div>
+ 
+ </div>
+</section>
+  
+  <section class="fourth-section">
+    <div class="links">
+      <ul>
+        <li><a class="the-active" href="#">ALL</a></li>
+        <li><a class="the-inactive" href="#">APP</a></li>
+        <li><a class="the-inactive" href="#">CARD</a></li>
+        <li><a class="the-inactive" href="#">WEB</a></li>
+      </ul>
+    </div>
+    <div class="fourth-all-content">
+      <div class="first-column">
+        <div class="first-img">
+          <div class="in-img-1">
+            <h4 class="the-h4">App 1</h4>
+            <p class="the-p">App</p>
+            <div class="pluss">
+              <a href="#"><i class="fa-solid fa-plus"></i></a>
+              <a href="#"><i class="fa-solid fa-link"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="second-img">
+          <div class="in-img-2">
+            <h4 class="the-h4">App 1</h4>
+            <p class="the-p">App</p>
+            <div class="pluss">
+              <a href="#"><i class="fa-solid fa-plus"></i></a>
+              <a href="#"><i class="fa-solid fa-link"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="second-column">
+        <div class="third-img">
+          <div class="in-img-3">
+            <h4 class="the-h4">App 1</h4>
+            <p class="the-p">App</p>
+            <div class="pluss">
+              <a href="#"><i class="fa-solid fa-plus"></i></a>
+              <a href="#"><i class="fa-solid fa-link"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="fourth-img">
+          <div class="in-img-4">
+            <h4 class="the-h4">App 1</h4>
+            <p class="the-p">App</p>
+            <div class="pluss">
+              <a href="#"><i class="fa-solid fa-plus"></i></a>
+              <a href="#"><i class="fa-solid fa-link"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="fifth-img">
+          <div class="in-img-5">
+            <h4 class="the-h4">App 1</h4>
+            <p class="the-p">App</p>
+            <div class="pluss">
+              <a href="#"><i class="fa-solid fa-plus"></i></a>
+              <a href="#"><i class="fa-solid fa-link"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="third-column">
+        <div class="sixth-img">
+          <div class="in-img-6">
+            <h4 class="the-h4">App 1</h4>
+            <p class="the-p">App</p>
+            <div class="pluss">
+              <a href="#"><i class="fa-solid fa-plus"></i></a>
+              <a href="#"><i class="fa-solid fa-link"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="seventh-img">
+          <div class="in-img-7">
+            <h4 class="the-h4">App 1</h4>
+            <p class="the-p">App</p>
+            <div class="pluss">
+              <a href="#"><i class="fa-solid fa-plus"></i></a>
+              <a href="#"><i class="fa-solid fa-link"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="eighth-img">
+          <div class="in-img-8">
+            <h4 class="the-h4">App 1</h4>
+            <p class="the-p">App</p>
+            <div class="pluss">
+              <a href="#"><i class="fa-solid fa-plus"></i></a>
+              <a href="#"><i class="fa-solid fa-link"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="ninth-img">
+          <div class="in-img-9">
+            <h4 class="the-h4">App 1</h4>
+            <p class="the-p">App</p>
+            <div class="pluss">
+              <a href="#"><i class="fa-solid fa-plus"></i></a>
+              <a href="#"><i class="fa-solid fa-link"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+  <section id="clients" class="clients" >
+   <div class="container aos-init aos-animate" data-aos="fade-up">
+    <div class="section-title">
+     <h2>CLIENTS </h2>
+    </div>
+     
+
+    <div class="row no-gutters clients-warp clearfix aos-init aos-animate" data-aos="fade-up"  style="display: flex; flex-wrap: wrap;">
+    <div class="col-lg-3 col-md-4 col-6" >
+        <div class="client-logo">
+            <img src="./clients/client-1.png" class="img-fluid" alt="">
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-6">
+        <div class="client-logo">
+            <img src="./clients/client-2.png" class="img-fluid" alt="">
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-6">
+        <div class="client-logo">
+            <img src="./clients/client-3.png" class="img-fluid" alt="">
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-6">
+        <div class="client-logo">
+            <img src="./clients/client-4.png" class="img-fluid" alt="">
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-6">
+        <div class="client-logo">
+            <img src="./clients/client-5.png" class="img-fluid" alt="">
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-6">
+        <div class="client-logo">
+            <img src="./clients/client-6.png" class="img-fluid" alt="">
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-6">
+        <div class="client-logo">
+            <img src="./clients/client-7.png" class="img-fluid" alt="">
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-6">
+        <div class="client-logo">
+            <img src="./clients/client-8.png" class="img-fluid" alt="">
+        </div>
+    </div>
+    </div>
+   </div>
+
+  </section>
+  <footer style="background-color: #222; color: #fff; padding: 20px 0;">
+    <div style="display: flex; justify-content: space-between; max-width: 1200px; margin: auto; padding: 0 20px;">
+  
+      <!-- Company Info Section -->
+      <div style="flex: 1;">
+        <h3>COMPANY</h3><br>
+        <p style="color: rgba(255, 255, 255, 0.6);">A108 Adam Street<br><br>New York, NY 535022<br><br>United States</p><br>
+        <p style="color: rgba(255, 255, 255, 0.6);"><strong>Phone:</strong> +1 5589 55488 55<br><br>
+        <strong style="color: rgba(255, 255, 255, 0.6);">Email:</strong> info@example.com</p>
+      </div>
+  
+      <!-- Useful Links Section -->
+      <div style="flex: 1;">
+        <h4>Useful Links</h4><br>
+        <ul style="list-style: none; padding: 0;">
+          <li><a href="home.html" style="color: rgba(255, 255, 255, 0.6);transition: 0.3s;">Home</a></li><br>
+          <li><a href="about.html" style="color: rgba(255, 255, 255, 0.6);transition: 0.3s;">About us</a></li><br>
+          <li><a href="services.html" style="color: rgba(255, 255, 255, 0.6);transition: 0.3s;">Services</a></li><br>
+          <li><a href="Terms of service.html" style="color: rgba(255, 255, 255, 0.6);transition: 0.3s;">Terms of service</a></li><br>
+          <li><a href="Privacy policy.html" style="color: rgba(255, 255, 255, 0.6);transition: 0.3s;">Privacy policy</a></li><br>
+        </ul>
+      </div>
+  
+      <!-- Services Section -->
+      <div style="flex: 1;">
+        <h4>Our Services</h4><br>
+        <ul style="list-style: none; padding: 0;color: rgba(255, 255, 255, 0.6);transition: 0.3s;">
+          <li><a href="Web Design.html" style="color: rgba(255, 255, 255, 0.6);transition: 0.3s;">Web Design</a></li><br>
+          <li><a href="Web Development.html" style="color: rgba(255, 255, 255, 0.6);transition: 0.3s;">Web Development</a></li><br>
+          <li><a href="Product Management.html" style="color: rgba(255, 255, 255, 0.6);transition: 0.3s;">Product Management</a></li><br>
+          <li><a href="Marketing.html" style="color: rgba(255, 255, 255, 0.6);transition: 0.3s;">Marketing</a></li><br>
+          <li><a href="Graphic Design.html" style="color: rgba(255, 255, 255, 0.6);transition: 0.3s;">Graphic Design</a></li>
+        </ul>
+      </div>
+  
+      <!-- Newsletter Section -->
+      <div style="flex: 1;">
+        <h4>Join Our Newsletter</h4><br><br>
+        <p style="color: rgba(255, 255, 255, 0.6)">Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p><br><br><br>
+        <form style="display: flex;">
+          <input type="email" placeholder="Your Email" style="padding: 10px 20px; width: 70%; border: none; ">
+          <button type="submit" style="padding: 15px 20px; background-color: #28a745; color: #fff; border: none;">Subscribe</button>
+        </form>
+      </div>
+
+    </div>
+  
+    <div style="display: flex;
+        padding: 20px; width: 80%; margin: auto; padding: 20px;" >
+      <div style="width: 90%;">
+        <p>© Copyright <strong>Company</strong>. All Rights Reserved</p>
+      <p>Designed by <a href="https://bootstrapmade.com/" style="color: #28a745;">BootstrapMade</a></p>
+   
+      </div>
+
+
+      <div style="width: 30%;">
+        <a href="#"><i class="fa-brands fa-twitter twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-facebook facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin linkedin"></i></a>
+
+
+        
+      </div>
+    </div>
+ 
+  </footer>
+
+  <button class="button1">
+    <a href="#index"><i class="fa-solid fa-arrow-up" style="font-size: 19px;"></i></a>
+</button>
+
+
+
+
+
+
+
+
+<script>
+
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    
+    function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        slides[index].classList.add('active');
+    }
+    
+    function moveSlide(step) {
+        currentSlide = (currentSlide + step + slides.length) % slides.length;
+        showSlide(currentSlide);
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        showSlide(currentSlide);
+    });
+        </script>
+    
+</body>
+</html>
